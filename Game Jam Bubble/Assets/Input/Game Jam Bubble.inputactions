@@ -6,24 +6,6 @@
             "id": "c9841566-ae1a-4b28-8b7a-478b40141f38",
             "actions": [
                 {
-                    "name": "WalkHorizontal",
-                    "type": "Value",
-                    "id": "16f82526-57a8-40a0-8496-7ab5d98e07ab",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "WalkVertical",
-                    "type": "Value",
-                    "id": "cca21eb0-1a2a-4b0d-990e-51cec011008f",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Movement",
                     "type": "Value",
                     "id": "1dc221eb-f849-41f6-8511-b10944a74ed8",
@@ -49,75 +31,54 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "WalkUp",
+                    "type": "Button",
+                    "id": "3edebca6-ddef-45e6-9721-18fdab5e73f7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "WalkDown",
+                    "type": "Button",
+                    "id": "29b8a29b-311f-4163-bebd-9ccba70d2981",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "WalkLeft",
+                    "type": "Button",
+                    "id": "4d0ff251-0ab9-4f28-9af6-1a242bd7d30a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "WalkRight",
+                    "type": "Button",
+                    "id": "6e1b4958-7ccd-44a3-88a5-9b2f61260dd4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Shoot",
+                    "type": "Button",
+                    "id": "c9e0132c-116a-4e18-a1ff-264350cc8893",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
-                {
-                    "name": "2D Vector",
-                    "id": "3902b5db-283b-4163-abd5-8bce72b31ada",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "WalkHorizontal",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "left",
-                    "id": "24fcaba7-e2e1-4180-9494-4c5cbd2c227d",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "WalkHorizontal",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "4cac1558-1448-4e22-9856-53594cc3d688",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "WalkHorizontal",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "2D Vector",
-                    "id": "8ace1b39-3f40-4f7d-ba5b-10af931ac347",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "WalkVertical",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "c05e974b-0d5d-43d1-81b6-688f5f2dd9c3",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "WalkVertical",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "57745f6a-8b8e-4f65-b524-341c5a06e8ec",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "WalkVertical",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
                 {
                     "name": "2D Vector",
                     "id": "0c54544e-3d24-4a47-b14e-70eed81ddce8",
@@ -192,6 +153,116 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "PoppedDebug",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "311f3d00-e3eb-4a93-a5ac-cb4da7d77b94",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WalkUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3d92beb1-4699-4c50-adfe-b8f8cd56efba",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WalkUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "97191e82-c72a-4cd4-b533-bbb75127a517",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WalkDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "edbc6d56-7681-481c-8eeb-a3bd140737d9",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WalkDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4f8dbf04-18c7-48dd-a434-d648c63b9f8f",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WalkLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "144f871a-95c2-446b-bccd-e596414c70ae",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WalkLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "095ef8c5-c6ce-410c-8c24-cc28f6ab668a",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WalkRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "995fb3ae-5251-40da-9863-d4b321fcb637",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WalkRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5c66c32e-8b4b-4727-9c36-e5f3783ed2ca",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9082f2e3-a822-4eec-9fcb-a6e4a01c92c1",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
