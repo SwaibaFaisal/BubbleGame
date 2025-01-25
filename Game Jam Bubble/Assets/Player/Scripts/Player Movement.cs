@@ -11,7 +11,8 @@ public class PlayerMovement : MonoBehaviour
 {
     //editable values
     [SerializeField] float m_speed;
-  
+    [SerializeField] GameObject m_gunObject;
+    [SerializeField] GunScript m_gunScript;
 
     //private values
     Vector2 m_walkValue;
@@ -23,23 +24,28 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_spriteRenderer = this.GetComponent<SpriteRenderer>();  
-        
+        m_spriteRenderer = this.GetComponent<SpriteRenderer>();
+        m_gunScript = m_gunObject.GetComponent<GunScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(m_walkDirection != Vector2.zero)
+        {
+            m_gunScript.ShootDirection = m_walkDirection;
+        }
+        
         Vector3 a = m_walkDirection * m_speed;
         this.transform.position += a;
 
-       
+
     }
 
 
     public void OnMovement(InputAction.CallbackContext _context)
     {
-        if(_context.ReadValue<Vector2>() == Vector2.zero)
+        if (_context.ReadValue<Vector2>() == Vector2.zero)
         {
             m_walkDirection = Vector2.zero;
         }
@@ -48,23 +54,23 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnLeftPressed(InputAction.CallbackContext _context)
     {
-        if(_context.started)
+        if (_context.started)
         {
             m_walkDirection = Vector2.left;
-            m_spriteRenderer.flipX = true;
+            FlipSprite(true);
         }
         if (_context.canceled)
         {
             m_walkDirection.x = m_previousDirection.x;
         }
     }
-
+    
     public void OnRightPressed(InputAction.CallbackContext _context)
     {
         if (_context.started)
         {
             m_walkDirection = Vector2.right;
-            m_spriteRenderer.flipX = false;
+            FlipSprite(false);
         }
         if (_context.canceled)
         {
@@ -78,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
         {
             m_walkDirection = Vector2.up;
         }
-        if(_context.canceled)
+        if (_context.canceled)
         {
             m_walkDirection.y = m_previousDirection.y;
         }
@@ -95,32 +101,19 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    Vector2 GetWalkDirection(Vector2 _input)
+    public void FlipSprite(bool flip)
     {
-        Vector2 _finalDirection = Vector2.zero;
-
-        if(_input.y > 0.01f)
+        if(flip)
         {
-            _finalDirection = Vector2.up;
+            this.transform.rotation = Quaternion.Euler(0f,180f,0f);
         }
-        else if (_input.y < -0.01f)
+        else
         {
-            _finalDirection = Vector2.down;
+            this.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
-        else if (_input.x > 0.01f)
-        {
-            _finalDirection = Vector2.right;
-        }
-        else if (_input.x < -0.01f)
-        {
-            _finalDirection = Vector2.left;
-        }
-       
-        return _finalDirection;
     }
 
 }
-
 
 
 public enum E_PlayerWalkStates
