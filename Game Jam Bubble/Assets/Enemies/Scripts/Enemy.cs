@@ -43,9 +43,13 @@ public class Enemy : MonoBehaviour
             case E_EnemyStates.BUBBLE:
 
                 IsBubble();
+
                 break;
 
             case E_EnemyStates.POPPED:
+
+                IsPopped();
+
                 break;
         }
 
@@ -93,7 +97,17 @@ public class Enemy : MonoBehaviour
     }
     void IsPopped()
     {
-        
+        this.gameObject.SetActive(false);
+        m_bubble.SetActive(false);
+    }
+
+
+    public void PoppedDebugPressed(InputAction.CallbackContext _context)
+    {
+        if(m_enemyStates == E_EnemyStates.BUBBLE)
+        {
+            m_enemyStates = E_EnemyStates.POPPED;
+        }
     }
 
 
