@@ -42,6 +42,13 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    void SetGunPosition()
+    {
+        if(m_walkDirection. x < -0.01f)
+        {
+            m_gunObject.transform.position = new Vector3(0.38f, -0.2f);
+        }
+    }
 
     public void OnMovement(InputAction.CallbackContext _context)
     {
