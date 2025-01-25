@@ -656,14 +656,6 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 16f82526-57a8-40a0-8496-7ab5d98e07ab
-    m_ActionName: 'Gameplay/WalkHorizontal[/Keyboard/a,/Keyboard/d]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: cca21eb0-1a2a-4b0d-990e-51cec011008f
-    m_ActionName: 'Gameplay/WalkVertical[/Keyboard/w,/Keyboard/s]'
-  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1502847923}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
@@ -679,6 +671,70 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 1dc221eb-f849-41f6-8511-b10944a74ed8
     m_ActionName: 'Gameplay/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1502847923}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnUpPressed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a4ef0a55-b8a0-47c3-9f24-d207f1791136
+    m_ActionName: 'Gameplay/Walk Up[/Keyboard/w]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1502847923}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnDownPressed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5b7bf86c-fae7-419f-8c13-3a338e1532c8
+    m_ActionName: 'Gameplay/Walk Down[/Keyboard/s]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1502847923}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnLeftPressed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9cbf1038-1c03-466a-8487-23ba196e6f3b
+    m_ActionName: 'Gameplay/Walk Left[/Keyboard/a]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1502847923}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnRightPressed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7de71108-4f87-408a-83be-b2b79b3e2697
+    m_ActionName: 'Gameplay/Walk Right[/Keyboard/d]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -768,7 +824,7 @@ Transform:
   m_GameObject: {fileID: 1502847919}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.209, y: 0, z: 0}
+  m_LocalPosition: {x: 1.484, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
