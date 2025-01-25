@@ -8,7 +8,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Bubble
   - Water
   - UI
   - 
@@ -43,4 +43,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1618787031
+    locked: 0
+  - name: Bubble
+    uniqueID: 2573289923
     locked: 0
