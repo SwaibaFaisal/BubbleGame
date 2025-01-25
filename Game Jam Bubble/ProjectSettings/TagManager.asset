@@ -11,8 +11,8 @@ TagManager:
   - Bubble
   - Water
   - UI
-  - Walls
-  - Player
+  - 
+  - 
   - 
   - 
   - 
@@ -46,7 +46,4 @@ TagManager:
     locked: 0
   - name: Bubble
     uniqueID: 2573289923
-    locked: 0
-  - name: Bullet
-    uniqueID: 1779218539
     locked: 0
