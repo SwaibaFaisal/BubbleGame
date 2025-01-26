@@ -123,29 +123,34 @@ public class PlayerMovement: MonoBehaviour
 
     public void OnPoke(InputAction.CallbackContext _context)
     {
-        m_isPoking = true;
-        print("poke");
-/*
-        if (Physics2D.OverlapCircle(this.transform.position, 1f, m_enemyLayer) != null)
+        if(_context.started)
         {
-            Collider2D collider = Physics2D.OverlapCircle(this.transform.position, 0.1f, m_enemyLayer);
-
-            if (collider.GetComponentInParent<Enemy>() != null)
+            m_isPoking = true;
+            print("poke");
+            if (Physics2D.OverlapCircle(this.transform.position, 1f, m_enemyLayer) != null)
             {
-                Enemy enemyScript = collider.GetComponentInParent<Enemy>();
+                Collider2D collider = Physics2D.OverlapCircle(this.transform.position, 1f, m_enemyLayer);
 
-                if (enemyScript != null)
+                if (collider.GetComponentInParent<Enemy>() != null)
                 {
-                    enemyScript.m_enemyStates = Enemy.E_EnemyStates.POPPED;
-                }
-            }
+                    Enemy enemyScript = collider.GetComponentInParent<Enemy>();
 
-        }*/
-        m_isPoking = false;
+                    if (enemyScript != null && enemyScript.m_enemyStates == Enemy.E_EnemyStates.BUBBLE)
+                    {
+                        enemyScript.m_enemyStates = Enemy.E_EnemyStates.POPPED;
+                    }
+                }
+
+            }
+            m_isPoking = false;
+        }
+         
 
     }
-
+        
 }
+
+
 
 
 public enum E_PlayerWalkStates
