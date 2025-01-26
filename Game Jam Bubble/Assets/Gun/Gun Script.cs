@@ -9,6 +9,8 @@ public class GunScript : MonoBehaviour
     [SerializeField] GameObject m_bullet;
     [SerializeField] Transform m_bulletSpawnPosition;
     [SerializeField] GameObject m_gunSprite;
+    public AudioSource m_audioSource;
+    public AudioClip m_bubbleSound;
     Vector3 m_mousePos;
 
     // Start is called before the first frame update
@@ -51,6 +53,8 @@ public class GunScript : MonoBehaviour
         if(_context.started)
         {
             GameObject bullet = BulletSpawner.Instance.GetInactiveBullet();
+
+            m_audioSource.PlayOneShot(m_bubbleSound);
 
             if (bullet != null)
             {
