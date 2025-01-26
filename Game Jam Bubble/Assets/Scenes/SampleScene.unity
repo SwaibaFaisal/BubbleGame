@@ -1034,8 +1034,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1274126876}
         m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
-        m_MethodName: BubbleDebugPressed
-        m_Mode: 0
+        m_MethodName: ChangeToBubble
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

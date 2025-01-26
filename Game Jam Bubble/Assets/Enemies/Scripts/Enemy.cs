@@ -4,12 +4,16 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
+using Unity.VisualScripting;
 
 public class Enemy : MonoBehaviour
 {
 
     public GameObject m_player;
     public GameObject m_bubblePrefab;
+    [SerializeField] float m_bubbleTimer = 3;
+    [SerializeField] float m_maxTime = 3;
+    private bool m_timerIsRunning;
 
     public float m_speed;
 
@@ -22,14 +26,14 @@ public class Enemy : MonoBehaviour
     private float m_bobSpeed = 6f;
     private GameObject m_myBubble;
 
-       
+
 
     // Start is called before the first frame update
     void Start()
     {
         m_rigidBody = this.GetComponent<Rigidbody2D>();
 
-        m_myBubble = Instantiate(m_bubblePrefab, m_bubblePrefab.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - (m_bubblePrefab.GetComponent<SpriteRenderer>().bounds.size.y / 2), this.transform.position.z), Quaternion.identity); 
+        m_myBubble = Instantiate(m_bubblePrefab, m_bubblePrefab.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - (m_bubblePrefab.GetComponent<SpriteRenderer>().bounds.size.y / 2), this.transform.position.z), Quaternion.identity);
     }
 
     // Update is called once per frame
@@ -45,8 +49,21 @@ public class Enemy : MonoBehaviour
 
 
             case E_EnemyStates.BUBBLE:
+               
+                
+                if (m_bubbleTimer > 0)
+                {
+                    IsBubble();
+                    m_bubbleTimer -= Time.deltaTime;
+                }
+                else
+                {
+                    m_enemyStates = E_EnemyStates.FOLLOW;
+                    
+                }
 
-                IsBubble();
+               
+                
 
                 break;
 
@@ -55,14 +72,29 @@ public class Enemy : MonoBehaviour
                 IsPopped();
 
                 break;
+
+            //case E_EnemyStates.ESCAPED:
+
+                //IsEscaped();
+
+                //break;
         }
 
-       
+      
+
+
+    }
+
+    public void ChangeToBubble()
+    {
+        m_bubbleTimer = m_maxTime;
+        m_enemyStates = E_EnemyStates.BUBBLE;
     }
 
 
     public void FollowPlayer()
     {
+        m_myBubble.SetActive(false);
         this.GetComponent<SpriteRenderer>().flipY = false;
         m_speed = 1;
 
@@ -71,7 +103,10 @@ public class Enemy : MonoBehaviour
 
         transform.position = Vector2.MoveTowards(this.transform.position, m_player.transform.position, m_speed * Time.deltaTime);
 
-        m_myBubble.SetActive(false);
+        
+        
+ 
+        m_timerIsRunning = false;
     }
 
     public void IsBubble()
@@ -83,11 +118,12 @@ public class Enemy : MonoBehaviour
         transform.position = new Vector2(this.transform.position.x, Mathf.Sin(Time.time * m_bobSpeed) * amp);
 
         m_myBubble.SetActive(true);
+        
 
-       
+
         m_myBubble.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - (m_myBubble.GetComponent<SpriteRenderer>().bounds.size.y / 2), this.transform.position.z);
 
-
+      
 
 
     }
@@ -107,7 +143,10 @@ public class Enemy : MonoBehaviour
     {
         this.gameObject.SetActive(false);
         m_myBubble.SetActive(false);
+        m_timerIsRunning = false;
     }
+
+
 
 
     public void PoppedDebugPressed(InputAction.CallbackContext _context)
@@ -125,6 +164,8 @@ public class Enemy : MonoBehaviour
 
         BUBBLE,
 
-        POPPED
+        POPPED,
+
+        ESCAPED
     }
 }
