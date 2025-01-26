@@ -76,6 +76,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Poke",
+                    "type": "Button",
+                    "id": "572e0c33-4d5b-4641-b1ba-d6c1bfa893dc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -257,12 +266,12 @@
                 },
                 {
                     "name": "",
-                    "id": "9082f2e3-a822-4eec-9fcb-a6e4a01c92c1",
+                    "id": "3b0e4270-b031-4b5e-b421-763b3cc40640",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Shoot",
+                    "action": "Poke",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
