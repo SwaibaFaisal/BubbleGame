@@ -12,19 +12,22 @@ public class PlayerMovement: MonoBehaviour
     [SerializeField] float m_speed;
     [SerializeField] GameObject m_gunObject;
     [SerializeField] GunScript m_gunScript;
+    [SerializeField] LayerMask m_enemyLayer;
 
     //private values
     Vector2 m_walkValue;
     Vector2 m_walkDirection;
     Vector2 m_previousDirection;
     SpriteRenderer m_spriteRenderer;
-
+    bool m_isPoking;
+    PlayerHealth m_healthScript;
 
     // Start is called before the first frame update
     void Start()
     {
         m_spriteRenderer = this.GetComponent<SpriteRenderer>();
         m_gunScript = m_gunObject.GetComponent<GunScript>();
+        m_healthScript = this.GetComponent<PlayerHealth>();
     }
 
     // Update is called once per frame
@@ -37,8 +40,6 @@ public class PlayerMovement: MonoBehaviour
 
         Vector3 a = m_walkDirection * m_speed;
         this.transform.position += a;
-
-
     }
 
     void SetGunPosition()
@@ -117,6 +118,31 @@ public class PlayerMovement: MonoBehaviour
         {
             this.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
+    }
+
+
+    public void OnPoke(InputAction.CallbackContext _context)
+    {
+        m_isPoking = true;
+        print("poke");
+/*
+        if (Physics2D.OverlapCircle(this.transform.position, 1f, m_enemyLayer) != null)
+        {
+            Collider2D collider = Physics2D.OverlapCircle(this.transform.position, 0.1f, m_enemyLayer);
+
+            if (collider.GetComponentInParent<Enemy>() != null)
+            {
+                Enemy enemyScript = collider.GetComponentInParent<Enemy>();
+
+                if (enemyScript != null)
+                {
+                    enemyScript.m_enemyStates = Enemy.E_EnemyStates.POPPED;
+                }
+            }
+
+        }*/
+        m_isPoking = false;
+
     }
 
 }

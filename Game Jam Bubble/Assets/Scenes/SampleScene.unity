@@ -325,11 +325,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: d651d5dd4c80dec44802fd967784603f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.077
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: d651d5dd4c80dec44802fd967784603f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: d651d5dd4c80dec44802fd967784603f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -969,7 +969,7 @@ Transform:
   m_GameObject: {fileID: 974892003}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.821, y: 1.26, z: 0}
+  m_LocalPosition: {x: -4.5, y: 1.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1191,7 +1191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: d651d5dd4c80dec44802fd967784603f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.431
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: d651d5dd4c80dec44802fd967784603f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1428,6 +1428,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c9e0132c-116a-4e18-a1ff-264350cc8893
     m_ActionName: 'Gameplay/Shoot[/Mouse/leftButton,/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1502847923}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnPoke
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 572e0c33-4d5b-4641-b1ba-d6c1bfa893dc
+    m_ActionName: 'Gameplay/Poke[/Keyboard/space]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -1499,11 +1515,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: d651d5dd4c80dec44802fd967784603f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.754
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: d651d5dd4c80dec44802fd967784603f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: d651d5dd4c80dec44802fd967784603f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1868,7 +1884,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 356810879148083488, guid: fa0c92cd4fe396e4c8dcc1915c272018, type: 3}
       propertyPath: m_BodyType
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 356810879148083488, guid: fa0c92cd4fe396e4c8dcc1915c272018, type: 3}
       propertyPath: m_GravityScale
@@ -1922,6 +1938,10 @@ PrefabInstance:
       propertyPath: m_gunObject
       value: 
       objectReference: {fileID: 1422096442613804432}
+    - target: {fileID: 7108914028411290714, guid: fa0c92cd4fe396e4c8dcc1915c272018, type: 3}
+      propertyPath: m_enemyLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 9009805501929040410, guid: fa0c92cd4fe396e4c8dcc1915c272018, type: 3}
       propertyPath: m_Name
       value: Player

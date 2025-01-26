@@ -18,9 +18,24 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Physics2D.OverlapCircle(this.transform.position, 0.5f, m_enemyLayer) != null)
+
+
+        if (Physics2D.OverlapCircle(this.transform.position, 0.1f, m_enemyLayer) != null)
         {
-            Hit();
+            Collider2D collider = Physics2D.OverlapCircle(this.transform.position, 0.1f, m_enemyLayer);
+
+            if (collider.GetComponentInParent<Enemy>() != null)
+            {
+                Enemy enemyScript = collider.GetComponentInParent<Enemy>();
+
+                if (enemyScript != null)
+                {
+                    if(enemyScript.m_enemyStates == Enemy.E_EnemyStates.FOLLOW)
+                    {
+                        Hit();
+                    }
+                }
+            }
 
         }
     }
