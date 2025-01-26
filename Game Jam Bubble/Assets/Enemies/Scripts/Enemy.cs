@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
 {
 
     public GameObject m_player;
-    public GameObject m_bubble;
+    public GameObject m_bubblePrefab;
 
     public float m_speed;
 
@@ -20,12 +20,16 @@ public class Enemy : MonoBehaviour
 
     private float amp = 0.1f;
     private float m_bobSpeed = 6f;
+    private GameObject m_myBubble;
 
-    
+       
+
     // Start is called before the first frame update
     void Start()
     {
         m_rigidBody = this.GetComponent<Rigidbody2D>();
+
+        m_myBubble = Instantiate(m_bubblePrefab, m_bubblePrefab.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - (m_bubblePrefab.GetComponent<SpriteRenderer>().bounds.size.y / 2), this.transform.position.z), Quaternion.identity); 
     }
 
     // Update is called once per frame
@@ -66,6 +70,8 @@ public class Enemy : MonoBehaviour
         Vector2 direction = m_player.transform.position - transform.position;
 
         transform.position = Vector2.MoveTowards(this.transform.position, m_player.transform.position, m_speed * Time.deltaTime);
+
+        m_myBubble.SetActive(false);
     }
 
     public void IsBubble()
@@ -76,8 +82,10 @@ public class Enemy : MonoBehaviour
 
         transform.position = new Vector2(this.transform.position.x, Mathf.Sin(Time.time * m_bobSpeed) * amp);
 
+        m_myBubble.SetActive(true);
+
        
-        m_bubble.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - (m_bubble.GetComponent<SpriteRenderer>().bounds.size.y / 2), this.transform.position.z);
+        m_myBubble.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - (m_myBubble.GetComponent<SpriteRenderer>().bounds.size.y / 2), this.transform.position.z);
 
 
 
@@ -98,7 +106,7 @@ public class Enemy : MonoBehaviour
     void IsPopped()
     {
         this.gameObject.SetActive(false);
-        m_bubble.SetActive(false);
+        m_myBubble.SetActive(false);
     }
 
 
