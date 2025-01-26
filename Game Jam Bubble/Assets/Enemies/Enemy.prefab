@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2678679581497759111}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.98, y: 0.99, z: 0}
+  m_LocalPosition: {x: 3.97, y: -0.04, z: 0.067303926}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -103,6 +103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_player: {fileID: 9009805501929040410, guid: fa0c92cd4fe396e4c8dcc1915c272018, type: 3}
   m_bubblePrefab: {fileID: 8322966411896244516, guid: 82e25dd891068bc44b0645193ce90861, type: 3}
+  m_bubbleTimer: 3
+  m_maxTime: 3
   m_speed: 1
   m_enemyStates: 0
 --- !u!50 &1807162328916526927

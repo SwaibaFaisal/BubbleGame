@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] float m_maxTime = 3;
     private bool m_timerIsRunning;
 
+    
+
     public float m_speed;
 
     private float m_distance;
@@ -25,6 +27,7 @@ public class Enemy : MonoBehaviour
     private float amp = 0.1f;
     private float m_bobSpeed = 6f;
     private GameObject m_myBubble;
+    private float originalY;
 
 
 
@@ -89,6 +92,10 @@ public class Enemy : MonoBehaviour
     {
         m_bubbleTimer = m_maxTime;
         m_enemyStates = E_EnemyStates.BUBBLE;
+
+        originalY = this.transform.position.y;
+
+        
     }
 
 
@@ -115,13 +122,14 @@ public class Enemy : MonoBehaviour
 
         this.GetComponent<SpriteRenderer>().flipY = true;
 
-        transform.position = new Vector2(this.transform.position.x, Mathf.Sin(Time.time * m_bobSpeed) * amp);
+        transform.position = new Vector2(this.transform.position.x, (originalY + (Mathf.Sin(Time.time * m_bobSpeed) * amp)));
 
+       
+
+        m_myBubble.transform.position = new Vector3(this.transform.position.x, this.transform.localPosition.y - (m_myBubble.GetComponent<SpriteRenderer>().bounds.size.y / 2), this.transform.position.z);
         m_myBubble.SetActive(true);
+
         
-
-
-        m_myBubble.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - (m_myBubble.GetComponent<SpriteRenderer>().bounds.size.y / 2), this.transform.position.z);
 
       
 
