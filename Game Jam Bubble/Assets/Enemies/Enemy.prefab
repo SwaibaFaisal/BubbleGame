@@ -101,9 +101,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3bc1bc9348e3c14882b32294d9a1fc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_player: {fileID: 0}
-  m_bubble: {fileID: 0}
+  m_player: {fileID: 9009805501929040410, guid: fa0c92cd4fe396e4c8dcc1915c272018, type: 3}
+  m_bubblePrefab: {fileID: 8322966411896244516, guid: 82e25dd891068bc44b0645193ce90861, type: 3}
   m_speed: 1
+  m_enemyStates: 0
 --- !u!50 &1807162328916526927
 Rigidbody2D:
   serializedVersion: 4
