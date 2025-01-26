@@ -149,12 +149,9 @@ public class Enemy : MonoBehaviour
     }
     void IsPopped()
     {
-
-        Destroy(m_myBubble);
-        Destroy(this);
-        /*this.gameObject.SetActive(false);
+        this.gameObject.SetActive(false);
         m_myBubble.SetActive(false);
-        m_timerIsRunning = false;*/
+        m_timerIsRunning = false;
     }
 
 

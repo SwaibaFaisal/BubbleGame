@@ -1332,7 +1332,7 @@ MonoBehaviour:
   m_enemies: []
   m_enemyPrefab: {fileID: 2678679581497759111, guid: b8c14d7bb795a554cb46014cc4f0c964, type: 3}
   player: {fileID: 1502847919}
-  m_spawnTimerMax: 4
+  m_spawnTimerMax: 8
   m_spawnTimer: 4
   spawnTimerRunning: 1
 --- !u!114 &1455742349
@@ -1808,7 +1808,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: YOU DIED :/
+  m_text: 'YOU DIED :/
+
+    LOSER'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1817,8 +1819,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278519295
+  m_fontColor: {r: 1, g: 0.020754695, b: 0.020754695, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1841,7 +1843,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535

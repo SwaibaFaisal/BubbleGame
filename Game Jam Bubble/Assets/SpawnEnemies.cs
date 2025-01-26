@@ -62,13 +62,14 @@ public class SpawnEnemies : MonoBehaviour
     {
         for(int i = 0; i < m_enemies.Count; i++) 
         {
-            if (m_enemies[i].GetComponent<Enemy>().m_enemyStates != Enemy.E_EnemyStates.BUBBLE)
+            if (m_enemies[i] != null && m_enemies[i].GetComponent<Enemy>().m_enemyStates != Enemy.E_EnemyStates.BUBBLE) 
             {
                 Destroy(m_enemies[i]);
             }
             
         }
-        m_enemies.Clear();
+        m_enemies?.Clear();
+       
 
         for (int i = 0; i < m_spawnPositions.Length; i++)
         { 
