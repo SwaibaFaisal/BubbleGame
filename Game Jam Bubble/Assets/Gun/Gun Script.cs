@@ -8,6 +8,8 @@ public class GunScript : MonoBehaviour
     [SerializeField] Vector2 m_shootDirection;
     [SerializeField] GameObject m_bullet;
     [SerializeField] Transform m_bulletSpawnPosition;
+    [SerializeField] GameObject m_gunSprite;
+    Vector3 m_mousePos;
 
     // Start is called before the first frame update
     void Start()
@@ -19,15 +21,30 @@ public class GunScript : MonoBehaviour
     void Update()
     {        
         CalculateShootDirection();
+        RotateGunSprite();
     }
     void CalculateShootDirection()
     {
         Vector3 a = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 b = new Vector3(a.x, a.y, this.transform.position.z);
-        Vector2 shootDirection = (b - this.transform.position).normalized;
+        m_mousePos = new Vector3(a.x, a.y, 0);
+        Vector2 shootDirection = (m_mousePos - this.transform.position).normalized;
 
         m_shootDirection = shootDirection;
 
+    }
+
+    void RotateGunSprite()
+    {
+
+        float lookAngle = CalculateAngle(m_gunSprite.transform.position, m_mousePos); 
+
+        m_gunSprite.transform.eulerAngles = new Vector3(0,0,lookAngle + 180);
+        //m_gunSprite.transform.Rotate(new Vector3(0,0,lookAngle));
+    }
+
+    float CalculateAngle(Vector2 a, Vector2 b)
+    {
+        return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
     }
     public void OnShoot(InputAction.CallbackContext _context)
     {

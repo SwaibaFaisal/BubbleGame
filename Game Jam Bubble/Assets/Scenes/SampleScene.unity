@@ -1942,6 +1942,22 @@ PrefabInstance:
       propertyPath: m_enemyLayer.m_Bits
       value: 128
       objectReference: {fileID: 0}
+    - target: {fileID: 8202085819764091467, guid: fa0c92cd4fe396e4c8dcc1915c272018, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8202085819764091467, guid: fa0c92cd4fe396e4c8dcc1915c272018, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8202085819764091467, guid: fa0c92cd4fe396e4c8dcc1915c272018, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8202085819764091467, guid: fa0c92cd4fe396e4c8dcc1915c272018, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.839
+      objectReference: {fileID: 0}
     - target: {fileID: 9009805501929040410, guid: fa0c92cd4fe396e4c8dcc1915c272018, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1977,9 +1993,15 @@ MonoBehaviour:
   m_shootDirection: {x: 0, y: 0}
   m_bullet: {fileID: 0}
   m_bulletSpawnPosition: {fileID: 1422096442613804434}
+  m_gunSprite: {fileID: 1422096442613804435}
 --- !u!4 &1422096442613804434 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2846686374596032346, guid: fa0c92cd4fe396e4c8dcc1915c272018, type: 3}
+  m_PrefabInstance: {fileID: 1422096442613804431}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1422096442613804435 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3953369829245931138, guid: fa0c92cd4fe396e4c8dcc1915c272018, type: 3}
   m_PrefabInstance: {fileID: 1422096442613804431}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6195745019151027916
