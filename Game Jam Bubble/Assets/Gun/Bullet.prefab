@@ -104,3 +104,6 @@ MonoBehaviour:
   m_destructibleLayer:
     serializedVersion: 2
     m_Bits: 64
+  m_enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128

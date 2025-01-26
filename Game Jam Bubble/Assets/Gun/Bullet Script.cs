@@ -9,6 +9,7 @@ public class BulletScript : MonoBehaviour
     [SerializeField] float m_speed;
     [SerializeField] float m_activeDuration;
     [SerializeField] LayerMask m_destructibleLayer;
+    [SerializeField] LayerMask m_enemyLayer;
     bool m_isActive;
     float m_timeElapsed;
 
@@ -29,6 +30,23 @@ public class BulletScript : MonoBehaviour
         if (Physics2D.OverlapCircle(this.transform.position, 0.1f, m_destructibleLayer))
         {
             this.gameObject.SetActive(false);
+        }
+
+        if (Physics2D.OverlapCircle(this.transform.position, 0.1f, m_enemyLayer) != null)
+        {
+            Collider2D collider = Physics2D.OverlapCircle(this.transform.position, 0.1f, m_enemyLayer);
+
+            if (collider.GetComponentInParent<Enemy>() != null)
+            {
+                Enemy enemyScript = collider.GetComponentInParent<Enemy>();
+
+                if (enemyScript != null)
+                {
+                    enemyScript.m_enemyStates = Enemy.E_EnemyStates.BUBBLE;
+                    this.gameObject.SetActive(false);
+                }
+            }
+
         }
 
     }

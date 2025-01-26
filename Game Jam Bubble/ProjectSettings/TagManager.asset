@@ -12,7 +12,7 @@ TagManager:
   - Water
   - UI
   - Walls
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -46,4 +46,7 @@ TagManager:
     locked: 0
   - name: Bubble
     uniqueID: 2573289923
+    locked: 0
+  - name: Health
+    uniqueID: 3796585615
     locked: 0

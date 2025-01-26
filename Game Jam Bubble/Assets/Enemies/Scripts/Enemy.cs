@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
 
     private float m_distance;
     private Rigidbody2D m_rigidBody;
-    private E_EnemyStates m_enemyStates;
+    public E_EnemyStates m_enemyStates;
     private bool m_isBubble;
 
     private float amp = 0.1f;
