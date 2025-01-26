@@ -40,7 +40,7 @@ public class SpawnEnemies : MonoBehaviour
 
                     m_enemyToSpawn = Instantiate (m_enemyPrefab);
 
-                    m_enemyToSpawn.transform.position = m_spawnPosition.transform.position;
+                   
                     Enemy _script = m_enemyToSpawn.GetComponent<Enemy>();
                     if (_script != null )
                     {
@@ -55,5 +55,15 @@ public class SpawnEnemies : MonoBehaviour
 
         }
 
+    }
+
+    public void OnReset()
+    {
+        for (int i = 0; i < m_spawnPositions.Length; i++)
+        {
+            m_spawnPosition = m_spawnPositions[Random.Range(0, m_spawnPositions.Length)];
+            m_enemyToSpawn.transform.position = m_spawnPosition.transform.position;
+        }
+        m_spawnTimer = m_spawnTimerMax;
     }
 }
