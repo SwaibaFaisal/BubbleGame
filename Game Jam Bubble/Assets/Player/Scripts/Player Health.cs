@@ -54,7 +54,7 @@ public class PlayerHealth : MonoBehaviour
             m_hitEvent.Raise(this,1);
             
         }
-       if(m_currentHearts == 0)
+        if(m_currentHearts == 0)
         {
             m_deathEvent.Raise(this, 1);
         }
