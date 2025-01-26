@@ -12,15 +12,23 @@ public class GunScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_shootDirection = new Vector2(1,0);
+        
     }
 
     // Update is called once per frame
     void Update()
+    {        
+        CalculateShootDirection();
+    }
+    void CalculateShootDirection()
     {
+        Vector3 a = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 b = new Vector3(a.x, a.y, this.transform.position.z);
+        Vector2 shootDirection = (b - this.transform.position).normalized;
+
+        m_shootDirection = shootDirection;
 
     }
-
     public void OnShoot(InputAction.CallbackContext _context)
     {
         GameObject bullet = BulletSpawner.Instance.GetInactiveBullet();

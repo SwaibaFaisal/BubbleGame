@@ -33,10 +33,7 @@ public class PlayerMovement: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_walkDirection != Vector2.zero)
-        {
-           m_gunScript.ShootDirection = m_walkDirection;
-        }
+        
 
         Vector3 a = m_walkDirection * m_speed;
         this.transform.position += a;
@@ -127,7 +124,7 @@ public class PlayerMovement: MonoBehaviour
         {
             m_isPoking = true;
             print("poke");
-            if (Physics2D.OverlapCircle(this.transform.position, 1f, m_enemyLayer) != null)
+            if(Physics2D.OverlapCircle(this.transform.position, 1f, m_enemyLayer) != null)
             {
                 Collider2D collider = Physics2D.OverlapCircle(this.transform.position, 1f, m_enemyLayer);
 
