@@ -53,7 +53,7 @@ public class BulletScript : MonoBehaviour
         else
         {
             Vector3 moveValue = new Vector3(m_moveDirection.x * m_speed, m_moveDirection.y * m_speed, 0);
-            this.transform.position += moveValue;
+            this.transform.position += moveValue * Time.deltaTime;
 
             if (Physics2D.OverlapCircle(this.transform.position, 0.2f, m_destructibleLayer))
             {
