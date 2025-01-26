@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnEnemies : MonoBehaviour
 {
     [SerializeField] public Transform[] m_spawnPositions;
-    
+    [SerializeField] List<GameObject> m_enemies = new List<GameObject>();
     public GameObject m_enemyPrefab;
     public GameObject player;
     private Transform m_spawnPosition;
@@ -46,6 +46,7 @@ public class SpawnEnemies : MonoBehaviour
                     {
                         _script.m_player = player;
                     }
+                    m_enemies.Add(m_enemyToSpawn);
                     
                 }
 
@@ -57,12 +58,33 @@ public class SpawnEnemies : MonoBehaviour
 
     }
 
-    public void OnReset()
+    public void OnReset(Component _sender, object _data)
     {
-        for (int i = 0; i < m_spawnPositions.Length; i++)
+        for(int i = 0; i < m_enemies.Count; i++) 
         {
-            m_spawnPosition = m_spawnPositions[Random.Range(0, m_spawnPositions.Length)];
+            if (m_enemies[i].GetComponent<Enemy>().m_enemyStates != Enemy.E_EnemyStates.BUBBLE)
+            {
+                Destroy(m_enemies[i]);
+            }
+            
+        }
+        m_enemies.Clear();
+
+        for (int i = 0; i < m_spawnPositions.Length; i++)
+        { 
+           m_spawnPosition = m_spawnPositions[Random.Range(0, m_spawnPositions.Length)];
+           m_enemyToSpawn = Instantiate(m_enemyPrefab);
+
+
+            Enemy _script = m_enemyToSpawn.GetComponent<Enemy>();
+            if (_script != null)
+            {
+                _script.m_player = player;
+            }
+
             m_enemyToSpawn.transform.position = m_spawnPosition.transform.position;
+            m_enemies.Add(m_enemyToSpawn);
+
         }
         m_spawnTimer = m_spawnTimerMax;
     }
