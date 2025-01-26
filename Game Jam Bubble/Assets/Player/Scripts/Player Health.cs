@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] int m_maxHearts;
     [SerializeField] LayerMask m_enemyLayer;
     [SerializeField] GameEvent m_hitEvent;
+    [SerializeField] GameEvent m_deathEvent;
     int m_currentHearts;
 
 
@@ -19,8 +20,6 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         if (Physics2D.OverlapCircle(this.transform.position, 0.1f, m_enemyLayer) != null)
         {
             Collider2D collider = Physics2D.OverlapCircle(this.transform.position, 0.1f, m_enemyLayer);
@@ -53,10 +52,11 @@ public class PlayerHealth : MonoBehaviour
             this.transform.position = Vector2.zero;
             m_currentHearts--;
             m_hitEvent.Raise(this,1);
+            
         }
-        else
+       if(m_currentHearts == 0)
         {
-            print("death");
+            m_deathEvent.Raise(this, 1);
         }
        
     }
