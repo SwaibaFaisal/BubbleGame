@@ -353,7 +353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c739c40d76a86b478a953a127d676d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 0.02
+  m_speed: 3
   m_gunObject: {fileID: 0}
   m_gunScript: {fileID: 0}
   m_enemyLayer:

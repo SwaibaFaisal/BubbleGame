@@ -35,7 +35,7 @@ public class PlayerMovement: MonoBehaviour
     {
         
 
-        Vector3 a = m_walkDirection * m_speed;
+        Vector3 a = m_walkDirection * Time.deltaTime * m_speed;
         this.transform.position += a;
     }
 

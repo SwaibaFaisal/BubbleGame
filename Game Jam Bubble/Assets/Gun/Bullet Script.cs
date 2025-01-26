@@ -42,7 +42,7 @@ public class BulletScript : MonoBehaviour
 
                 if (enemyScript != null)
                 {
-                    enemyScript.m_enemyStates = Enemy.E_EnemyStates.BUBBLE;
+                    enemyScript.ChangeToBubble();
                     this.gameObject.SetActive(false);
                 }
             }
