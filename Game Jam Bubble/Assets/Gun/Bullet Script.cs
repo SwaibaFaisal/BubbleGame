@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BulletScript : MonoBehaviour
 {
@@ -10,46 +12,80 @@ public class BulletScript : MonoBehaviour
     [SerializeField] float m_activeDuration;
     [SerializeField] LayerMask m_destructibleLayer;
     [SerializeField] LayerMask m_enemyLayer;
-    bool m_isActive;
-    float m_timeElapsed;
+    [SerializeField] Animator m_animator;
+    
 
+    bool m_destroyTimerStarted = false;
+    float m_counter;
+    [SerializeField] float m_destroyTime = 0.5f;
 
     // Start is called before the first frame update
     void Start()
     {
-        m_timeElapsed = 0;
+        ResetBullet();
+        m_animator = this.GetComponent<Animator>();
+    }
+
+
+    public void ResetBullet()
+    {
+        m_counter = 0;
+        m_destroyTimerStarted = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        Vector3 moveValue = new Vector3(m_moveDirection.x * m_speed, m_moveDirection.y * m_speed, 0);
-        this.transform.position += moveValue;
-
-        if (Physics2D.OverlapCircle(this.transform.position, 0.1f, m_destructibleLayer))
+        if(m_destroyTimerStarted)
         {
-            this.gameObject.SetActive(false);
-        }
-
-        if (Physics2D.OverlapCircle(this.transform.position, 0.1f, m_enemyLayer) != null)
-        {
-            Collider2D collider = Physics2D.OverlapCircle(this.transform.position, 0.1f, m_enemyLayer);
-
-            if (collider.GetComponentInParent<Enemy>() != null)
+            if(m_counter <= m_destroyTime)
             {
-                Enemy enemyScript = collider.GetComponentInParent<Enemy>();
 
-                if (enemyScript != null)
-                {
-                    enemyScript.ChangeToBubble();
-                    this.gameObject.SetActive(false);
-                }
+                m_counter += Time.deltaTime;
+            }
+            else
+            {
+                this.gameObject.SetActive(false);
             }
 
-        }
 
+        }
+        else
+        {
+            Vector3 moveValue = new Vector3(m_moveDirection.x * m_speed, m_moveDirection.y * m_speed, 0);
+            this.transform.position += moveValue;
+
+            if (Physics2D.OverlapCircle(this.transform.position, 0.2f, m_destructibleLayer))
+            {
+                m_animator.Play("Popped");
+
+                m_destroyTimerStarted = true;
+            }
+
+            if (Physics2D.OverlapCircle(this.transform.position, 0.2f, m_enemyLayer) != null)
+            {
+                Collider2D collider = Physics2D.OverlapCircle(this.transform.position, 0.2f, m_enemyLayer);
+
+                if (collider.GetComponentInParent<Enemy>() != null)
+                {
+                    Enemy enemyScript = collider.GetComponentInParent<Enemy>();
+
+                    if (enemyScript != null)
+                    {
+                        enemyScript.ChangeToBubble();
+
+                        this.gameObject.SetActive(false);
+
+                    }
+                }
+
+            }
+        }
+        
     }
+
+    
+    
 
     public Vector2 MoveDirection { get { return m_moveDirection; } set { m_moveDirection = value; } }
 

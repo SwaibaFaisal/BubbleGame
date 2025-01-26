@@ -48,24 +48,30 @@ public class GunScript : MonoBehaviour
     }
     public void OnShoot(InputAction.CallbackContext _context)
     {
-        GameObject bullet = BulletSpawner.Instance.GetInactiveBullet();
-
-        if (bullet != null)
+        if(_context.started)
         {
-            BulletScript script = bullet.GetComponent<BulletScript>();
+            GameObject bullet = BulletSpawner.Instance.GetInactiveBullet();
 
-            if (script != null)
+            if (bullet != null)
             {
-                bullet.transform.position = m_bulletSpawnPosition.position;
-                script.MoveDirection = m_shootDirection;
-                bullet.gameObject.SetActive(true);
-            }
-            else
-            {
-                print("null");
-            }
+                BulletScript script = bullet.GetComponent<BulletScript>();
 
+                if (script != null)
+                {
+                    bullet.transform.position = m_bulletSpawnPosition.position;
+                    script.MoveDirection = m_shootDirection;
+                    script.ResetBullet();
+                    bullet.gameObject.SetActive(true);
+                    
+                }
+                else
+                {
+                    print("null");
+                }
+
+            }
         }
+        
 
     }
 
