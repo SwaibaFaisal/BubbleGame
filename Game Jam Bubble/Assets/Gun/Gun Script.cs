@@ -12,7 +12,7 @@ public class GunScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        m_shootDirection = new Vector2(1,0);
     }
 
     // Update is called once per frame
